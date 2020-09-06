@@ -20,107 +20,71 @@
 
 
 
-    <div class="container">
+    <div class="container ml-2 border border-dark rounded">
         <div class="row">
-            <div class="col-3">
-                <p>Search for a City</p>
-                <input id="city-search"><button id="search-button"><i class="fa fa-search"></i> </button>
+            <!--search-bar-->
+            <div class="col-3 border border-dark rounded">
+                <h3><strong>Search for a city:</strong></h3>
+                <input id="city-search"><button id="search-button"><i class="fa fa-search btn btn-primary"></i> </button>
                 <div id="search">
+                    <ul class="list-group row-cols-1">
+
+                    </ul>
 
                 </div>
             </div>
-            <div class="col-9">
 
-
+            <!--current weather-->
+            <div class="col-9 border border-dark rounded">
                 <div id="currentDay">
-
                 </div>
                 <div id="icon"><img id="wicon" src="" alt="Weather icon"></div>
-
                 <div id="Temperature">
-
                 </div>
-
                 <div id="Humidity">
-
                 </div>
-
                 <div id="Wind-Speed">
                 </div>
-
                 <div id="uv">
-
                 </div>
 
-
-
-
-
+                <!--Future 5 day forcast-->
                 <div class="row">
-                    <div class="col-sm-2">
-                        <div class="card">
-                            <div class="card-body bg-danger text-white">
-                                <h5 class="card-title">date here</h5>
-                                <div class="info">
-                                    <div id="new-temp-1"></div>
-                                    <div id="new-humidity-1"></div>
-                                    <div id="new-icon-1"></div>
-                                
+                    <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
+                                    <P id="new-date-0"></p>
+                                    <p id="new-temp-0"></p>
+                                    <p id="new-humidity-0"></p>
+                                    <p id="icon"><img id="new-icon-0" src="" alt="Weather icon"></p>
                                 </div>
+                    <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
+                                    <p id="new-date-1"></p>
+                                    <p id="new-temp-1"></p>
+                                    <p id="new-humidity-1"></p>
+                                    <p id="icon"><img id="new-icon-1" src="" alt="Weather icon"></p>
+                                </div>
+                    <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
+                                    <p id="new-date-2"></p>
+                                    <p id="new-temp-2"></p>
+                                    <p id="new-humidity-2"></p>
+                                    <p id="icon"><img id="new-icon-2" src="" alt="Weather icon"></p>
+                                </div>
+                        <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
+                                        <p id="new-date-3"></p>
+                                        <p id="new-temp-3"></p>
+                                        <p id="new-humidity-3"></p>
+                                        <p id="icon"><img id="new-icon-3" src="" alt="Weather icon"></p>
+                                    </div>
+                            <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
+                                <p id="new-date-4"></p>
+                                <p id="new-temp-4"></p>
+                                <p id="new-humidity-4"></p>
+                                <p id="icon"><img id="new-icon-4" src="" alt="Weather icon"></p>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="card">
-                            <div class="card-body bg-primary text-white">
-                                <h5 class="card-title">date here</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional
-                                    content.</p>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-sm-2">
-                        <div class="card">
-                            <div class="card-body bg-primary text-white">
-                                <h5 class="card-title">date here</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional
-                                    content.</p>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="card">
-                            <div class="card-body bg-primary text-white">
-                                <h5 class="card-title">date here</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional
-                                    content.</p>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-2">
-                        <div class="card">
-                            <div class="card-body bg-primary text-white">
-                                <h5 class="card-title">date here</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional
-                                    content.</p>
-
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="./assets/weather.js"></script>
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+            <script src="./assets/weather.js"></script>
 </body>
 
 </html>
