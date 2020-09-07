@@ -16,7 +16,7 @@ function getCities(City) {
         .then(function (response) {
             return response.json()
         }).then(function (data) {
-            console.log('data', data);
+        
             const temp = data.list[0].main.temp
             const hum = data.list[0].main.humidity
             const ws = data.list[0].wind.speed
@@ -47,19 +47,21 @@ function getCities(City) {
                 .then(function (response) {
                     return response.json()
                 }).then(function (data) {
-                    console.log('data', data);
                     $('#uv').text(`${data.value}`)
+                    $('#uv').removeClass('bg-success')
+                    $('#uv').removeClass('bg-warning')
+                    $('#uv').removeClass('bg-secondary')
+                    $('#uv').removeClass('bg-danger')
                     if (data.value <=2) {
                         $('#uv').addClass('bg-success');
                     }
                     else if (data.value <=5) {
                         $('#uv').addClass('bg-warning');
                     }    
-
                     else if (data.value <=7) {
                         $('#uv').addClass('bg-secondary');
                     }
-                    else if (data.value <=10) {
+                    else  {
                         $('#uv').addClass('bg-danger');
                     }
                     
@@ -88,13 +90,12 @@ function getFiveDayCards(index, newtemp, newhum, newicon) {
 
 
 function appendCities(city) {
-    $("#search").append(`<div class= card <p class="searchedCity" value="${city}">${city}</p>`);
+    $("#search").append(`<div class= 'card'> <p class="searchedCity" value="${city}">${city}</p> </div>`);
 }
 function loadPage() {
     let citiesList = JSON.parse(localStorage.getItem('savedCities'));
     if (citiesList && citiesList.length > 0) {
         for (let index = 0; index < citiesList.length; index++) {
-            console.log('listedCities', listedCities, listedCities.includes());
             if (!listedCities.includes(citiesList[index])) {
                 listedCities.push(citiesList[index]);
                 appendCities(citiesList[index])
@@ -112,6 +113,7 @@ function savedCities() {
 $("#search-button").on('click', () => getCities(getTextValue()));
 
 function handleMenuClick(e) {
+    console.log("hi",e.target)
     const targetVal = $(e.target).attr("value");
     getCities(targetVal);
 }
