@@ -32,7 +32,7 @@ function getCities(City) {
 
             $("#Temperature").text(`Temperature: ${temp}F`)
             $("#Humidity").text(`Humidity: ${hum}%`)
-            $("#Wind-Speed").text(`Wind-Speed: ${ws}MPH`)
+            $("#Wind-Speed").text(`Wind-Speed: ${ws} MPH`)
 
             $("#Temp").text(`Temperature: ${temp}`)
             for (let index = 0; index < 5; index++) {
@@ -48,22 +48,22 @@ function getCities(City) {
                     return response.json()
                 }).then(function (data) {
                     console.log('data', data);
-                    $('#uv').text(`UV Index ${data.value}`)
-                    if (data.val <=2) {
-                        $('#uv').addClass(bg-success)
+                    $('#uv').text(`${data.value}`)
+                    if (data.value <=2) {
+                        $('#uv').addClass('bg-success');
                     }
-                    else if (data.val <=5) {
-                        $('#uv').addClass(bg-warning)
+                    else if (data.value <=5) {
+                        $('#uv').addClass('bg-warning');
                     }    
 
-                    else if (data.val <=7) {
-                        $('#uv').addClass(bg-primary)
+                    else if (data.value <=7) {
+                        $('#uv').addClass('bg-secondary');
                     }
-
-                    else (data.val <=10) {
-                        $('#uv').addClass(bg-danger)
+                    else if (data.value <=10) {
+                        $('#uv').addClass('bg-danger');
                     }
                     
+
                     if (!listedCities.includes(City)) {
                         listedCities.push(City);
                         appendCities(City)
