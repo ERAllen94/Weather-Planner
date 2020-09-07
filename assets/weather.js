@@ -102,13 +102,11 @@ function loadPage() {
             }
         }
         getCities(citiesList[0]);
-    } else { getCities() }
+    } else { getCities('new york') }
 }
 loadPage()
 
-function savedCities() {
-   
-}
+
 
 $("#search-button").on('click', () => getCities(getTextValue()));
 
