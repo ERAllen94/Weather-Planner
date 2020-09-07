@@ -24,14 +24,15 @@ function getCities(City) {
             const lon = data.city.coord.lon
             const incode = data.list[0].weather[0].icon
             const currentDay = moment().startOf('day')
+            $('#currentCity').text(City)
             $('#currentDay').text(currentDay.format('MMM Do YYYY'));
             const iconurl = `http://openweathermap.org/img/w/${incode}.png`;
             $('#wicon').attr('src', iconurl);
 
 
-            $("#Temperature").text(`Temperature: ${temp}`)
-            $("#Humidity").text(`Humidity: ${hum}`)
-            $("#Wind-Speed").text(`Wind-Speed: ${ws}`)
+            $("#Temperature").text(`Temperature: ${temp}F`)
+            $("#Humidity").text(`Humidity: ${hum}%`)
+            $("#Wind-Speed").text(`Wind-Speed: ${ws}MPH`)
 
             $("#Temp").text(`Temperature: ${temp}`)
             for (let index = 0; index < 5; index++) {
@@ -48,6 +49,21 @@ function getCities(City) {
                 }).then(function (data) {
                     console.log('data', data);
                     $('#uv').text(`UV Index ${data.value}`)
+                    if (data.val <=2) {
+                        $('#uv').addClass(bg-success)
+                    }
+                    else if (data.val <=5) {
+                        $('#uv').addClass(bg-warning)
+                    }    
+
+                    else if (data.val <=7) {
+                        $('#uv').addClass(bg-primary)
+                    }
+
+                    else (data.val <=10) {
+                        $('#uv').addClass(bg-danger)
+                    }
+                    
                     if (!listedCities.includes(City)) {
                         listedCities.push(City);
                         appendCities(City)
@@ -58,10 +74,10 @@ function getCities(City) {
 }
 
 function getFiveDayCards(index, newtemp, newhum, newicon) {
-    $(`#new-temp-${index}`).text(`Temp: ${newtemp}`)
-    $(`#new-humidity-${index}`).text(`Humidity:% ${newhum}`)
+    $(`#new-temp-${index}`).text(`Temp: ${newtemp}F`)
     const iconurl = `http://openweathermap.org/img/w/${newicon}.png`;
     $(`#new-icon-${index}`).attr('src', iconurl);
+    $(`#new-humidity-${index}`).text(`Humidity: ${newhum}%`)
 
     const currentDay = moment().startOf('day').add(1 + index, 'days').format('MMM Do YYYY');
     $(`#new-date-${index}`).text(currentDay);
@@ -72,7 +88,7 @@ function getFiveDayCards(index, newtemp, newhum, newicon) {
 
 
 function appendCities(city) {
-    $("#search").append(`<p class="searchedCity" value="${city}">${city}</p>`);
+    $("#search").append(`<div class= card <p class="searchedCity" value="${city}">${city}</p>`);
 }
 function loadPage() {
     let citiesList = JSON.parse(localStorage.getItem('savedCities'));

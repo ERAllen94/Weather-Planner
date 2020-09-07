@@ -20,7 +20,7 @@
 
 
 
-    <div class="container ml-2 border border-dark rounded">
+    <div class="container ml-2">
         <div class="row">
             <!--search-bar-->
             <div class="col-3 border border-dark rounded">
@@ -35,10 +35,14 @@
             </div>
 
             <!--current weather-->
-            <div class="col-9 border border-dark rounded">
-                <div id="currentDay">
+            <div class="col-9">
+            <div>
+                <strong><span id = currentCity >
+                </span></strong>
+               <strong> <span id="currentDay">
+                </span> </strong>
+                <span id="icon"><img id="wicon" src="" alt="Weather icon"></span>
                 </div>
-                <div id="icon"><img id="wicon" src="" alt="Weather icon"></div>
                 <div id="Temperature">
                 </div>
                 <div id="Humidity">
@@ -47,9 +51,11 @@
                 </div>
                 <div id="uv">
                 </div>
+            
 
-                <!--Future 5 day forcast-->
-                <div class="row">
+            <!--Future 5 day forcast-->
+            <div class="row border border-dark">
+               <div class = "col-xs-12"> </h3> 5-day forcast</h3></div>
                     <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
                                     <P id="new-date-0"></p>
                                     <p id="new-temp-0"></p>
